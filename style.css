@@ -152,6 +152,10 @@ input[type="text"]:focus {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 540px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .popup h2 {
   margin-bottom: 15px;
