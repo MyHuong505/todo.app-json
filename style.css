@@ -117,10 +117,6 @@ ul li input {
   color: #555;
 }
 
-input[type="text"]:focus {
-  border: 1px solid #aaa;
-}
-
 .popup {
   display: none;
   position: fixed;
@@ -138,8 +134,16 @@ input[type="text"]:focus {
   color: #002765;
 }
 
+.popup input[type="radio"] {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
 .popup label {
+  display: inline-block;
   font-size: 14px;
+  vertical-align: middle;
+  margin-right: 20px;
 }
 
 .popup.show {
@@ -149,7 +153,7 @@ input[type="text"]:focus {
 .popup-content {
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 540px;
   position: fixed;
@@ -169,9 +173,6 @@ input[type="text"]:focus {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-.popup input[type="checkbox"] {
-  margin-right: 10px;
-}
 
 .popup button {
   padding: 10px 24px;
@@ -179,14 +180,18 @@ input[type="text"]:focus {
   margin-right: 10px;
   border: none;
   border-radius: 40px;
-  background-color: #4caf50;
+  background-color: #f44336;
   color: white;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
 }
 .popup button:hover {
-  background-color: #3e8e41;
+  background-color: #ff5945;
 }
 
 .popup button:last-child {
-  background-color: #f44336;
+  background-color: #fff;
+  border: solid 1px #f44336;
+  color: #f44336;
 }
