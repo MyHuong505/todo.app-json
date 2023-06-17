@@ -27,13 +27,15 @@
             placeholder="New task description..."
           />
           <div>
-            <input type="checkbox" id="editImportant" />
+            <input type="radio" id="editImportant" name="priority" />
             <label for="editImportant">Important</label>
+            <input type="radio" id="editNotImportant" name="priority" />
+            <label for="editNotImportant">Not important</label>
           </div>
           <button id="confirmBtn">Confirm</button>
           <button id="cancelBtn">Cancel</button>
         </div>
-      </div>  
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
