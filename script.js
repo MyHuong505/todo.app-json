@@ -8,7 +8,8 @@ function createTodoElement(todo) {
   if (todo.isImportant) {
     li.classList.add("is-important");
   }
-  console.log(todo);
+  li.innerHTML = todo.description;
+  li.id = todo.id;
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
@@ -21,10 +22,7 @@ function createTodoElement(todo) {
   span.innerHTML = "\u00d7";
   li.appendChild(span);
 
-  const input = document.createElement("input");
-  input.type = "text";
-  input.value = todo.description;
-  li.appendChild(input);
+  console.log(todo);
 
   return li;
 }
@@ -36,7 +34,6 @@ async function fetchTodos() {
     const response = await fetch(url);
     const data = await response.json();
     const sortedData = sortTodos(data);
-
     sortedData.forEach(function (todo) {
       const todoElement = createTodoElement(todo);
       todoList.appendChild(todoElement);
@@ -46,6 +43,7 @@ async function fetchTodos() {
     console.log("Error with get request", error);
   }
 }
+
 fetchTodos();
 
 // POST
@@ -55,7 +53,6 @@ function addTask() {
     alert("Add your to-do task!");
   } else {
     const task = inputBox.value;
-
     fetch(url, {
       method: "POST",
       headers: {
@@ -136,10 +133,10 @@ const editImportantCheckbox = document.getElementById("editImportant");
 
 todoList.addEventListener("click", function (e) {
   if (e.target.tagName === "LI") {
-    const oldDescription = e.target.querySelector('input[type="text"]').value;
-    editDescriptionInput.value = oldDescription;
+    const oldDescription = e.target.innerText;
+    editDescriptionInput.value = oldDescription.replace("\u00d7", "");
     const taskId = e.target.getAttribute("id");
-    const completed = e.target.querySelector('input[type="checkbox"]').checked;
+    const completed = e.target.querySelector(".completed-checkbox").checked;
     popup.classList.add("show");
     confirmBtn.addEventListener("click", function () {
       const newDescription = editDescriptionInput.value;
